@@ -7,7 +7,7 @@ def serve_index():
 @app.route('/loaderio-6eb9bf95da20f05ae75ff6a724761fb3.txt')
 def servetest():
     return send_from_directory(app.static_folder,'loaderio-6eb9bf95da20f05ae75ff6a724761fb3.txt')
-@app.route('/test.jpeg')
+@app.route('/test')
 def serve_index2():
     return send_from_directory(app.static_folder, 'test.jpeg')
 
