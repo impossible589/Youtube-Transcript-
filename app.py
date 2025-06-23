@@ -13,7 +13,7 @@ def serve_index():
     return "server-ready"
 @app.route('/tes')
 def servt():
-     ydl_opts = {
+     opts = {
     'skip_download': True,
     'writesubtitles': True,
     'writeautomaticsub': True,
