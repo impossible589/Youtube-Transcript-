@@ -12,7 +12,7 @@ def serve_index():
     return "server-ready"
 @app.route('/tes')
 def servt():
-    return transcript = YouTubeTranscriptApi.get_transcript("cUlharo8sPQ")
+    return YouTubeTranscriptApi.get_transcript("cUlharo8sPQ",languages=['hi']))
 
 
 @app.route('/loaderio-6eb9bf95da20f05ae75ff6a724761fb3.txt')
