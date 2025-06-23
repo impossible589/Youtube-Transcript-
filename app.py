@@ -1,5 +1,6 @@
 from flask import Flask, send_from_directory , request
 from flask_cors import CORS
+from yt_dlp import YoutubeDL
 from youtube_transcript_api import YouTubeTranscriptApi
 app = Flask(__name__, static_folder='static')
 CORS(app)
@@ -12,7 +13,23 @@ def serve_index():
     return "server-ready"
 @app.route('/tes')
 def servt():
-    return YouTubeTranscriptApi.get_transcript("cUlharo8sPQ",languages=['hi'])
+     ydl_opts = {
+    'skip_download': True,
+    'writesubtitles': True,
+    'writeautomaticsub': True,
+    'quiet': True,
+    'sleep_interval': 2,
+    'max_sleep_interval': 5,
+    'http_headers': {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)...',
+        'Accept-Language': 'en-US,en;q=0.9',
+    }
+}   
+    with YoutubeDL(opts) as ydl:
+    data =ydl.download(['https://www.youtube.com/watch?v=cUlharo8sPQ'])
+
+
+    return data
 
 
 @app.route('/loaderio-6eb9bf95da20f05ae75ff6a724761fb3.txt')
